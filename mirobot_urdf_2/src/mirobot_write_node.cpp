@@ -27,7 +27,7 @@ void angle_write_callback(const sensor_msgs::JointState& msg)
 	sprintf(angle3, "%.2f", msg.position[3]*57.296);
   sprintf(angle4, "%.2f", msg.position[4]*57.296);
 	sprintf(angle5, "%.2f", msg.position[5]*57.296);
-	Gcode = (std::string)"M50 G0 X" + angle0 + " Y" + angle1 + " Z" + angle2 + " A" + angle3 + "B" + angle4 + "C" + angle5 + " F3000" + "\r\n";
+	Gcode = (std::string)"M50 G0 X" + angle0 + " Y" + angle1 + " Z" + angle2 + " A" + angle3 + " B" + angle4 + " C" + angle5 + " F3000" + "\r\n";
 	ROS_INFO("%s", Gcode.c_str());
 	_serial.write(Gcode.c_str());
 	result.data = _serial.read(_serial.available());
